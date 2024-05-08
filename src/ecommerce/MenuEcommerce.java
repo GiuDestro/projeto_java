@@ -44,7 +44,8 @@ public class MenuEcommerce {
         produtos.exibirDetalhes();
                 
         Scanner leia = new Scanner(System.in);
-        
+       
+        do {
 		while (true) {
 			System.out.println(Cores.TEXT_CYAN + Cores.ANSI_BLACK_BACKGROUND
 					+ "\n*************************************************");
@@ -96,7 +97,7 @@ public class MenuEcommerce {
 					
 				switch(tipo) {
 				case 1 -> {
-					System.out.println("Digite o peso do produto (não esqueça do descimal com .): ");
+					System.out.println("Digite o peso do produto: ");
 					peso = leia.nextFloat();
 					produtos.cadastrar(new ProdutoFisico(id, tipo, nome, preco, peso));
 				}
@@ -133,9 +134,8 @@ public class MenuEcommerce {
 				
 				if(buscaProduto != null) {
 					System.out.println("Digite o nome do produto: ");
-					nome = leia.nextLine();
-					System.out.println("Digite o nome do titular: ");
 					leia.skip("\\R?");
+					nome = leia.nextLine();
 					
 					System.out.println("Digite o preço do produto: ");
 					preco = leia.nextFloat();
@@ -176,8 +176,12 @@ public class MenuEcommerce {
 		}
 		
 		
-	}
+	 } while (opcao != 6);
+
+     leia.close();
 	
+	}
+
 
  public static void keyPress() {
 	
@@ -189,9 +193,12 @@ public class MenuEcommerce {
 		System.out.println("Você pressionou uma tecla diferente de Enter!");
 	}
 	
+ }
+ 
 }
 
-}
+ 
+ 
 
 
 	
